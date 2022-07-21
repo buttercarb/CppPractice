@@ -159,52 +159,106 @@ using namespace std;
 //     return 0;
 // }
 
-struct Student
-{
-    string name;
-    int score;
-};
-struct Teacher
-{
-    string name;
-    Student sArray[5];
-};
+// struct Student
+// {
+//     string name;
+//     int score;
+// };
+// struct Teacher
+// {
+//     string name;
+//     Student sArray[5];
+// };
 
-void allocateSpace(Teacher tArray[], int len)
+// void allocateSpace(Teacher tArray[], int len)
+// {
+//     string tName = "teacher";
+//     string sName = "student";
+//     string nameSeed = "ABCDE";
+//     for (int i = 0; i < len; i++)
+//     {
+//         for (int j = 0; j < 5; j++)
+//         {
+//             tArray[i].sArray[j].name = sName + nameSeed[j];
+//             tArray[i].sArray[j].score = rand() % 61 + 40;
+//         }
+//     }
+// }
+
+// void printTeachers(Teacher tArray[], int len)
+// {
+//     for (int i = 0; i < len; i++)
+//     {
+//         cout << tArray[i].name << endl;
+//         for (int j = 0; j < 5; j++)
+//         {
+//             cout << "\tName: " << tArray[i].sArray[j].name << " Score: " << tArray[i].sArray[j].score << endl;
+//         }  
+//     }  
+// }
+
+// int main()
+// {
+//     srand((unsigned int)time(NULL));
+    
+//     Teacher tArray[3];
+//     int len = sizeof(tArray) / sizeof(Teacher);
+//     allocateSpace(tArray, len);
+//     printTeachers(tArray, len);
+
+//     return 0;
+// }
+
+struct hero
 {
-    string tName = "teacher";
-    string sName = "student";
-    string nameSeed = "ABCDE";
-    for (int i = 0; i < len; i++)
+    string name;
+    int age;
+    string sex;
+};
+//bubble
+void bubbleSort(hero arr[], int len)
+{
+    for (int i = 0; i < len - 1; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < j - 1 - len; j++)
         {
-            tArray[i].sArray->name = sName + nameSeed[j];
-            tArray[i].sArray->score = rand() % 61 + 40;
+            if (arr[j].age > arr[j + 1].age)
+            {
+                hero temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+            
         }
+        
     }
+    
 }
 
-void printTeachers(Teacher tArray[], int len)
+void printHeros(hero arr[], int len)
 {
     for (int i = 0; i < len; i++)
     {
-        cout << tArray[i].name << endl;
-        for (int j = 0; j < 5; j++)
-        {
-            cout << "\tName: " << tArray[i].sArray[j].name << " Score: " << tArray[i].sArray[j].score << endl;
-        }  
-    }  
+        cout << "Name: " << arr[i].name << " Sex: " << arr[i].sex << " Age: " << arr[i].age << endl;
+
+    }
 }
 
 int main()
 {
-    srand((unsigned int)time(NULL));
+    struct hero arr[5] = 
+    {
+        {"刘备", 23, "男"},
+        {"关羽", 22, "男"},
+        {"张飞", 20, "男"},
+        {"赵云", 21, "女"},
+        {"貂蝉", 19, "女"},
+    };
+
+    int len = sizeof(arr) / sizeof(arr[0]);
+    bubbleSort(arr, len);
+    printHeros(arr, len);
     
-    Teacher tArray[3];
-    int len = sizeof(tArray) / sizeof(Teacher);
-    allocateSpace(tArray, len);
-    printTeachers(tArray, len);
 
     return 0;
 }
